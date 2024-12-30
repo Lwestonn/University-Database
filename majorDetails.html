@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Major Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container" id="majorDetailsContainer">
+        <h1>Major Details</h1>
+        <div id="majorInfo"></div>
+    </div>
+
+    <script>
+        // Retrieve the selected major from localStorage
+        const major = JSON.parse(localStorage.getItem("selectedMajor"));
+
+        if (major) {
+            // Display major details
+            const majorInfo = document.getElementById("majorInfo");
+            majorInfo.innerHTML = `
+                <h3>${major.major}</h3>
+                <p><strong>University:</strong> ${major.university}</p>
+                <p><strong>School of Study:</strong> ${major["school of study"]}</p>
+                <p><strong>Area of Study:</strong> ${major["area of study"]}</p>
+                <p><strong>SAT Score:</strong> ${major.sat}</p>
+                <p><strong>Housing Ranking:</strong> ${major["housing ranking"]}</p>
+                <p><strong>Campus Ranking:</strong> ${major["campus ranking"]}</p>
+                <p><strong>Common App:</strong> ${major["common app"]}</p>
+                <p><strong>Acceptance Rate:</strong> ${major["acceptance rate"]}%</p>
+                <p><strong>Graduation Rate:</strong> ${major["grad rate"]}%</p>
+                <p><strong>Tuition Cost:</strong> $${major["tuition cost"]}</p>
+            `;
+        } else {
+            document.getElementById("majorDetailsContainer").innerHTML = "<p>No major selected.</p>";
+        }
+    </script>
+
+</body>
+</html>
